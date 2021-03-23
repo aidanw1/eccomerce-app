@@ -1,0 +1,22 @@
+Reducers -
+state is changed through reducers
+reducers are functions which accept actions and
+responsible for manipulating and passing the state down to components
+
+Actions - 
+objects that represent the intention to change a piece of state
+
+Action creators - 
+functions that will dispatch/fire off those actions
+
+Redux thunk -
+in our action creators it allows us to make async requests because we need to talk to 
+our server through those action creators - piece of middleware
+
+Example
+action creator called get products 
+action creator makes a fetch request to the backend to get data using a http library
+we get the data back and dispatch an action to the reducer and attach a payload to it
+payload will have the fetch data
+in the reducer we can assign the payload data to the state and pass it down to components
+
