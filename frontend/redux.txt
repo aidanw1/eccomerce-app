@@ -3,11 +3,29 @@ state is changed through reducers
 reducers are functions which accept actions and
 responsible for manipulating and passing the state down to components
 
-Actions - 
+Actions - An object with a type and payload(data expected back)
 objects that represent the intention to change a piece of state
 
 Action creators - 
-functions that will dispatch/fire off those actions
+functions that will dispatch/fire off those actions - 
+dispatches the action
+
+example - for a button that needs to dispatch an action
+onClick={() => dispatch({
+    type: "INCREMENT_COUNT"
+})}
+instead of adding this functionality - say there was 10 buttons with this functionality,
+we can create an action creator instead to dispatch the action, instead of manually dispatching all the actions
+
+also calling dispatch everywhere can be verbose throughout an app so we can use a function instead and 
+call the dispatch behind the scenes
+
+action creator takes in some kind of argument and returns the object that has your action type
+(function that returns the actions) - which can then be dispatched anywhere
+export const incrementCountAction = () => ({
+    type: "INCREMENT_COUNT"
+})
+
 
 Redux thunk -
 in our action creators it allows us to make async requests because we need to talk to 
@@ -19,4 +37,5 @@ action creator makes a fetch request to the backend to get data using a http lib
 we get the data back and dispatch an action to the reducer and attach a payload to it
 payload will have the fetch data
 in the reducer we can assign the payload data to the state and pass it down to components
+
 
